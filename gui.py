@@ -132,7 +132,7 @@ def shell(cmd):
     return(subprocess.check_output(cmd, shell = True ))
 def switch_menu(argument):
     switcher = {
-    0: "_  P4wnP1 A.L.O.A",
+        0: "_About",
         1: "_SYSTEM RELATED",
         2: "_HID MANAGEMENT",
         3: "_WIRELESS THINGS",
