@@ -32,7 +32,6 @@ def main():
               menuClass.MenuOptions.NFC_POLL,
               menuClass.MenuOptions.OS_DETECT,
               menuClass.MenuOptions.HID_ATTACK,
-              menuClass.MenuOptions.SCREEN_OFF,
               menuClass.MenuOptions.USB_STATUS,
               menuClass.MenuOptions.SYS_INFO,
               menuClass.MenuOptions.NET_INFO]
