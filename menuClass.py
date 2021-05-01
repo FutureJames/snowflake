@@ -129,7 +129,7 @@ def execute_menu_class(selection):
         logging.debug("exec: NFC TEST")
         displayScreen.display(["Running diagnostic.", "   please wait...",], False)
         nfc = bash("pn53x-diagnose")
-        if nfc is not None:          
+        if nfc is not None:
             logging.debug(nfc)
             nfc = nfc.splitlines()
             dev = "Opened  :  " + nfc[1].split(':')[1].split(']')[0]
@@ -159,9 +159,9 @@ def execute_menu_class(selection):
         #nfc = bash("nfc-poll")
         nfc = nfc.splitlines()
         if (len(nfc) > 2):
-            atqa = "ATAQ: " + nfc[4].lstrip().split(':')[1] 
-            uid = "UID : " + nfc[5].lstrip().split(':')[1] 
-            sak = "SAK : "+ nfc[6].lstrip().split(':')[1] 
+            atqa = "ATAQ: " + nfc[4].lstrip().split(':')[1]
+            uid = "UID : " + nfc[5].lstrip().split(':')[1]
+            sak = "SAK : "+ nfc[6].lstrip().split(':')[1]
             # logging.debug(nfc)
             #logging.info(str(uid), str(atqa), str(sak))
             displayScreen.display(["==NFC Scan Complete=="," " ,uid, atqa, sak])
@@ -206,10 +206,10 @@ def execute_menu_class(selection):
     elif (selection == MenuOptions.SCREEN_OFF):
         time.sleep(0.2)
         logging.debug("screen sleeping zzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
-        while GPIO.input(config.KEY2_PIN ):
+        while GPIO.input(config.KEY_SELECT_PIN ):
             device.hide()
             time.sleep(0.1)
-        logging.debug("Screen waking up")    
+        logging.debug("Screen waking up")
         device.show()
 
     elif (selection == MenuOptions.OS_DETECT):
@@ -235,7 +235,7 @@ def execute_menu_class(selection):
         scan = scan.split("\n")
         while("" in scan):
              scan.remove("")
-        # ...and remove duplicates     
+        # ...and remove duplicates
         scan = list(set(scan))
         logging.info(scan)
         start_menu(scan, MenuType.LIST)

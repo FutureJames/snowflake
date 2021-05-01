@@ -69,7 +69,7 @@ def display(text):
             status = statusbar.get_status(status)
 
         # user exists screen
-        if (GPIO.input(config.KEY_PRESS_PIN) == False):  # noqa: 712
+        if (GPIO.input(config.KEY_CANCEL_PIN) == False):  # noqa: 712
             logging.debug("exiting ")
             return None
 

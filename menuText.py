@@ -65,13 +65,13 @@ def display(text):
             status = statusbar.get_status(status)
 
         # handle keypresses
-        if (GPIO.input(config.KEY1_PIN) == False):  # noqa: 712
+        if (GPIO.input(config.KEY_UP_PIN) == False):  # noqa: 712
             selected -= 1
-        if (GPIO.input(config.KEY3_PIN) == False):  # noqa: 712
+        if (GPIO.input(config.KEY_DOWN_PIN) == False):  # noqa: 712
             selected += 1
-        if (GPIO.input(config.KEY_RIGHT_PIN) == False):  # noqa: 712
+        if (GPIO.input(config.KEY_SELECT_PIN) == False):  # noqa: 712
             return selected + top_position
-        if (GPIO.input(config.KEY_PRESS_PIN) == False):  # noqa: 712
+        if (GPIO.input(config.KEY_CANCEL_PIN) == False):  # noqa: 712
             return None
         # list scroll logic
         if (selected >= len(text)-1):

@@ -31,13 +31,9 @@ class SetupClass:
     GPIO.setmode(GPIO.BCM)
 
     # key pins defined in constant.py
+    GPIO.setup(config.KEY_CANCEL_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.setup(config.KEY_UP_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(config.KEY_SELECT_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.setup(config.KEY_DOWN_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(config.KEY_LEFT_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(config.KEY_RIGHT_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(config.KEY_PRESS_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(config.KEY1_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(config.KEY2_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(config.KEY3_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     logging.info("SetupClass Initialized")

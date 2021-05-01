@@ -40,13 +40,13 @@ def display(text, wait=True):
 
         # handle keypresses
         # user hits cancel
-        if (GPIO.input(config.KEY_PRESS_PIN) == False):  # noqa: E712
+        if (GPIO.input(config.KEY_CANCEL_PIN) == False):  # noqa: E712
             return None
-        if (GPIO.input(config.KEY1_PIN) == False):  # noqa: E712
+        if (GPIO.input(config.KEY_UP_PIN) == False):  # noqa: E712
             return None
-        if (GPIO.input(config.KEY2_PIN) == False):  # noqa: E712
+        if (GPIO.input(config.KEY_SELECT_PIN) == False):  # noqa: E712
             return None
-        if (GPIO.input(config.KEY3_PIN) == False):  # noqa: E712
+        if (GPIO.input(config.KEY_DOWN_PIN) == False):  # noqa: E712
             return None
 
         # paint the screen
