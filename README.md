@@ -30,10 +30,12 @@ run things from there.
 
 FAQ:
 1. Why did you use Python? It is slow.
+
 The goal here was something friendly to tinkering.  I may do a C port later if 
 there is enough interest.  Or maybe you want to and contribute it back....
 
 2. Why is this code so crappy?
+
 First, mean.  Second, yeah it's not great.  This started as a quick one day project
 and grew in scope a little.  It is actually my first Python project that isn't just
 a temporary script.  I am normally a Java guy. Please do make improvements and
@@ -41,19 +43,24 @@ submit pull requests.  I will accept anything that keeps with the primary goal
 of DIY.
 
 3. Flipper is much better, it can do ....
+
 Yup, you are correct.  It is a great product and I also preordered one.  You will
 spend more time, money, and energy on this project and get worse results.  The 
 goal was just to encourage people to get their hands dirty and demystify prototype
 hardware development
 
 4. Can I buy one?
+
 No.  It's free, that's the whole point.
 
 5. Where did the name come from?
+
 It's fictional dolphins all the way down.
 
-6. This project is a dumb.
+6. This project is dumb.
+
 That's really more of a statement...
+
 
 
 TODO: Link to hardward BOM

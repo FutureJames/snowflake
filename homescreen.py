@@ -27,9 +27,7 @@ def main():
 
     menu_a = [menuClass.MenuOptions.HID,
               menuClass.MenuOptions.WIFI_SCAN,
-              menuClass.MenuOptions.NFC_CLONE,
-              menuClass.MenuOptions.NFC_TEST,
-              menuClass.MenuOptions.NFC_POLL,
+              menuClass.MenuOptions.NFC_SUBMENU,
               menuClass.MenuOptions.OS_DETECT,
               menuClass.MenuOptions.HID_ATTACK,
               menuClass.MenuOptions.USB_STATUS,

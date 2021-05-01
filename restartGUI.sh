@@ -1,4 +1,4 @@
 #!/bin/bash
 killall python
-python runmenu.py &
+python bootstrapSnowflakeUI.py &
 exec $SHELL

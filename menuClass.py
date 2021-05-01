@@ -29,13 +29,14 @@ class MenuOptions(Enum):
     WHITE = "subMenu Test"
     HID_ATTACK = "HID Attacks"
     HID = "HID Test"
-    USB_STATUS = "USB-OTG Status"
+    USB_STATUS = "USB Gadget Settings"
     SCREEN_OFF = "Screen Off"
     OS_DETECT = "OS Detection"
     WIFI_SCAN = "Wifi Scan"
     NFC_POLL = "NFC Scan"
-    NFC_TEST = "NFC Test"
+    NFC_TEST = "NFC Self-Test"
     NFC_CLONE = "NFC Clone"
+    NFC_SUBMENU = "NFC Tools    >" 
 
 class MenuType(Enum):
     TEXT = 0
@@ -201,6 +202,11 @@ def execute_menu_class(selection):
     elif (selection == MenuOptions.WHITE):
         logging.debug("exec: submenu")
         menu_b = [MenuOptions.USBSTATUS, MenuOptions.SYSINFO]
+        start_menu(menu_b, MenuType.TEXT)
+
+    elif (selection == MenuOptions.NFC_SUBMENU):
+        logging.debug("exec: NFC_SUBMENU")
+        menu_b = [MenuOptions.NFC_POLL, MenuOptions.NFC_CLONE, MenuOptions.NFC_TEST]
         start_menu(menu_b, MenuType.TEXT)
 
     elif (selection == MenuOptions.SCREEN_OFF):

@@ -80,12 +80,12 @@ def display(text):
             selected = (NUM_ROWS-1)
             if (len(text) > (top_position+NUM_ROWS)):
                 top_position += 1
-                logging.info("Top position changed> " + str(top_position))
+                logging.debug("Top position changed> " + str(top_position))
         if (selected < 0):
             selected = 0
             if (top_position > 0):
                 top_position -= 1
-                logging.info("Top position changed< " + str(top_position))
+                logging.debug("Top position changed< " + str(top_position))
 
         # paint the screen
         with canvas(device, dither=False) as draw:
