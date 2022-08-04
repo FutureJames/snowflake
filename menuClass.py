@@ -25,6 +25,7 @@ device = setup.SetupClass.device
 # Each of the menu options defined must have an implimentation in executeMenu()
 class MenuOptions(Enum):
     NET_INFO = "Network Info"
+    IR_BLAST = "IR Blast Eject"
     SYS_INFO = "System Info"
     WHITE = "subMenu Test"
     HID_ATTACK = "HID Attacks"
@@ -103,6 +104,10 @@ def execute_menu_class(selection):
             text.append("Mass Storage... " + result['Mass Storage'])
         displayScreen.display(text)
 
+    elif (selection ==MenuOptions.IR_BLAST):
+        logging.debug("exec: IR_BLAST")
+        bash("ir-ctl -d /dev/lirc0 -sir_eject -sir_eject -sir_eject") 
+
     elif (selection == MenuOptions.HID):
         logging.debug("exec: HID test")
         run_hid("hello_fast")
@@ -110,16 +115,18 @@ def execute_menu_class(selection):
     elif (selection == MenuOptions.NFC_CLONE):
         # TODO: Add user interface
         logging.debug("exec: NFC Clone")
-        displayScreen.display(["Scanning original now", "   please wait..."], False)
+        #displayScreen.display(["Scanning original now", "   please wait..."], False)
+        splashScreen.display("Reading...", "NFC.png")
         read = bash("nfc-list")
         read = read.splitlines()
         uid = read[5].split(':')[1]
         uid = uid.replace(" ", "")
         logging.info(uid)
         displayScreen.display(["Read in " + uid," ", "Place blank card and", "tap a key to continue"])
-        logging.info("Place blank card", "to write")
+        #logging.info("Place blank card to write")
         #time.sleep(5)
-        displayScreen.display(["Writing UID " + uid, "   please wait..." ], False)
+        #displayScreen.display(["Writing UID " + uid, "   please wait..." ], False)
+        splashScreen.display("Writting" + uid, "NFC.png")
         logging.info("Starting write procedure")
         if bash("nfc-mfsetuid " + uid) is not None:
             displayScreen.display(["Clone Complete!"])

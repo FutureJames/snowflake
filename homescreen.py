@@ -12,6 +12,7 @@ import menuClass
 import menuGraphical
 import displayScreen
 import splashScreen
+import config
 
 def main():
     """Docstring"""
@@ -25,7 +26,10 @@ def main():
 #    menuGraphical.display(text2)
 #    displayScreen.display(text)
 
+#    GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
     menu_a = [menuClass.MenuOptions.HID,
+              menuClass.MenuOptions.IR_BLAST,
               menuClass.MenuOptions.WIFI_SCAN,
               menuClass.MenuOptions.NFC_SUBMENU,
               menuClass.MenuOptions.OS_DETECT,
@@ -35,6 +39,20 @@ def main():
               menuClass.MenuOptions.NET_INFO]
 
     while 1:
+        #logging.info("loop")
+        if (GPIO.input(config.KEY_SELECT_PIN) == GPIO.LOW):  # noqa: 712
+            logging.debug("SELECT Pressed!!!!!!!!!!!!!!!!!!!!!!!")
+
+        if (GPIO.input(config.KEY_UP_PIN) == GPIO.LOW):  # noqa: 712
+            logging.debug("UP Pressed!!!!!!!!!!!!!!!!!!!!!!!")
+        
+        if (GPIO.input(config.KEY_DOWN_PIN) == GPIO.LOW):  # noqa: 712
+            logging.debug("DOWN Pressed!!!!!!!!!!!!!!!!!!!!!!!")
+        
+        if (GPIO.input(config.KEY_CANCEL_PIN) == GPIO.LOW):  # noqa: 712
+            logging.debug("CANCEL Pressed!!!!!!!!!!!!!!!!!!!!!!!")
+
+        
         choice = menuClass.start_menu(menu_a, menuClass.MenuType.TEXT)
         time.sleep(0.2)
 

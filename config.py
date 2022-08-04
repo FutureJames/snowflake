@@ -15,12 +15,30 @@ STATUS_FREQUENCY = 1  # Update one status bar icon per second
 FG = "white"
 BG = "black"
 
+
+# Screen Configuration
+#width = 128
+#height = 64
+
+SCREEN = 0  # SPI mode
+#SCREEN = 1  # I2C mode
+ROTATION = 2 # 2 for Waveshare 0 for custom
+#I2C_ADDRESS = 0x3c
+
 # GPIO define and OLED configuration
-RST_PIN = 25  # waveshare settings
-CS_PIN = 8   # waveshare settings
-DC_PIN = 24  # waveshare settings
-KEY_CANCEL_PIN = 13  # stick center button
-KEY_UP_PIN = 21  # key 1 // up
-KEY_SELECT_PIN = 20  # 20 #key 2 //Select
-KEY_DOWN_PIN = 16  # key 3 // down
-USER_I2C = 0   # set to 1 if your oled is I2C or 0 if use SPI interface
+RST_PIN = 25  # waveshare SPI settings
+DC_PIN = 24  # waveshare SPI settings
+#CS_PIN = 8 #CE0
+
+# Waveshare Keys
+KEY_CANCEL_PIN = 13 # Key2
+KEY_UP_PIN = 21  #  Key1
+KEY_DOWN_PIN = 16  #  Key3
+KEY_SELECT_PIN =  20 # Stick click 
+
+
+# Custom Keys
+#KEY_CANCEL_PIN = 27
+#KEY_UP_PIN = 17
+#KEY_DOWN_PIN = 4  
+#KEY_SELECT_PIN =  18 

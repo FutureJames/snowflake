@@ -64,23 +64,24 @@ def get_usb_status():
     # should be more durable over patches
     # -->  "New USB Geadget connect state:"
     plugged = utility.bash("tac /var/log/messages \
-                            | grep -m 1 'New USB G' \
+                            | grep -a -m 1 'New USB G' \
                             | awk {'print $NF'}")
-    #logging.debug(plugged)
-    if (plugged is not None):
+    # Check if response is null or empty
+    # TODO: update this to deal with logrotate for var/log/messages
+    if (plugged is not None) and (plugged):
         plugged = bool(int(plugged))
     else:
         plugged = 0
 
     enabled = utility.bash("P4wnP1_cli usb get \
-                    | grep 'Enabled:      true'")
+                    | grep -a  'Enabled:      true'")
     enabled = bool(enabled)
 
     return plugged and enabled
 
 
 def get_usb_ethernet_status():
-    usbeth = utility.bash("tac /var/log/messages | grep -m 1 'usbeth:' | grep 'forwarding'")
+    usbeth = utility.bash("tac /var/log/messages | grep -a -m 1 'usbeth:' | grep 'forwarding'")
     #logging.debug(usbeth)
     if usbeth == None:
         return False
